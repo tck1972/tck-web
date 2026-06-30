@@ -243,22 +243,72 @@
   .ctas svg{transition:transform .25s;}
   .ctas button:hover svg{transform:translate(2px,-2px);}
 
-  .service-bar{position:relative;z-index:5;max-width:calc(100% - 160px);margin:-64px auto 0;background:rgba(255,255,255,.94);border:1px solid rgba(40,58,45,.12);border-radius:8px;box-shadow:0 18px 45px rgba(23,31,28,.12);backdrop-filter:blur(14px);}
+  .service-bar{position:relative;border-top:1px solid var(--border);}
   .service-grid{
-    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;max-width:100%;margin:0 auto;padding:18px 22px;
+    max-width:1280px;margin:0 auto;padding:0 24px;
+    display:grid;grid-template-columns:repeat(4,1fr);
   }
-  .service-item{display:flex;align-items:center;gap:18px;padding:8px 30px;border-right:1px solid rgba(40,58,45,.14);}
+  .service-item{padding:20px 24px 20px 0;border-right:1px solid var(--border);}
   .service-item:last-child{border-right:none;}
-  .service-icon{flex:0 0 56px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#f3eee7;color:var(--accent);}
-  .service-copy{min-width:0;}
   .service-item .jp-label{
-    margin:0 0 6px;font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:500;color:var(--muted-foreground);letter-spacing:0;
+    font-family:"Noto Sans JP",sans-serif;font-size:10px;letter-spacing:0.2em;
+    color:var(--muted-foreground);margin-bottom:4px;
   }
-  .service-item .row{display:flex;flex-direction:column;align-items:flex-start;gap:4px;}
-  .service-item .kr-name{font-family:"Noto Serif KR",serif;font-size:15px;font-weight:700;line-height:1.2;color:var(--foreground);}
+  .service-item .row{display:flex;align-items:baseline;justify-content:space-between;}
+  .service-item .kr-name{font-family:"Noto Serif KR",serif;font-size:14px;font-weight:500;}
   .service-item .time{
-    font-family:"Noto Serif KR",serif;font-size:15px;font-weight:700;line-height:1.2;color:var(--accent);letter-spacing:.08em;white-space:nowrap;
+    font-family:"SF Mono","Courier New",monospace;font-size:10px;
+    letter-spacing:0.05em;color:var(--muted-foreground);margin-left:12px;
   }
+
+  /* ---------- 흐르는 띠 (마퀴) ---------- */
+  .marquee-section{
+    position:relative;overflow:hidden;
+    background:#ece4d1;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:14px 0;
+  }
+  .marquee-track{
+    display:flex;width:max-content;
+    animation:marquee-scroll 32s linear infinite;
+  }
+  .marquee-track span.unit{
+    display:flex;align-items:center;flex-shrink:0;
+    font-family:"Libre Baskerville",serif;
+    font-size:13px;letter-spacing:0.25em;text-transform:uppercase;
+    color:var(--muted-foreground);white-space:nowrap;
+  }
+  .marquee-track .kr-unit{
+    font-family:"Noto Serif KR",serif;letter-spacing:0.05em;text-transform:none;
+    color:var(--foreground);font-weight:500;
+  }
+  .marquee-track .dot{
+    margin:0 28px;color:var(--accent);
+  }
+  @keyframes marquee-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+  }
+
+  /* ---------- 말씀 섹션 ---------- */
+  .section{max-width:1280px;margin:0 auto;padding:96px 24px;}
+  .section-head{
+    display:flex;align-items:center;gap:20px;margin-bottom:56px;
+  }
+  .section-head .label{
+    font-family:"Noto Serif KR",serif;font-weight:700;font-size:14px;
+    letter-spacing:0.3em;flex-shrink:0;
+  }
+  .section-head .rule{flex:1;height:1px;background:var(--border);}
+  .section-head .all-link{
+    display:flex;align-items:center;gap:6px;flex-shrink:0;
+    font-size:11px;letter-spacing:0.15em;color:var(--muted-foreground);
+    transition:color .25s;
+  }
+  .section-head .all-link:hover{color:var(--foreground);}
 
   .sermon-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
   .sermon-feature .verse-tag{
@@ -429,12 +479,9 @@
     nav button{font-size:12px;letter-spacing:0.12em;flex-shrink:0;}
     .nav-item .submenu{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;display:none;box-shadow:none;border:none;width:auto;min-width:0;}
     .lang-switch{font-size:11px;padding-left:14px;margin-left:0;gap:6px;}
-    .service-bar{max-width:calc(100% - 32px);margin:-40px auto 0;}
-    .service-grid{grid-template-columns:repeat(2,1fr);padding:12px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
     .service-item:nth-child(2){border-right:none;}
-    .service-item{padding:12px;gap:12px;}
-    .service-icon{width:46px;height:46px;flex-basis:46px;}
-    .service-item .kr-name,.service-item .time{font-size:13px;}
+    .service-item{padding-top:12px;padding-bottom:12px;}
     .hero-content{padding-top:128px;padding-bottom:32px;}
     .eyebrow{margin-bottom:20px;}
     h1{margin-bottom:20px;}
@@ -553,77 +600,4 @@
 .practice-edit-mode li[contenteditable="true"]:focus {
   outline: 2px solid var(--accent);
   background: rgba(181,87,60,0.08);
-}
-
-/* Marquee restore */
-.marquee-section{
-  position:relative;
-  z-index:1;
-  width:100%;
-  overflow:hidden;
-  white-space:nowrap;
-  background:#1c1810;
-  color:#f5f1e7;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:18px 0;
-  line-height:1;
-}
-.marquee-track{
-  display:flex;
-  flex-wrap:nowrap;
-  align-items:center;
-  width:max-content;
-  min-width:max-content;
-  white-space:nowrap;
-  animation:marquee-scroll 34s linear infinite;
-  will-change:transform;
-}
-.marquee-track span{
-  flex:0 0 auto;
-  white-space:nowrap;
-}
-.marquee-track .unit{
-  font-family:"Libre Baskerville",serif;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.marquee-track .kr-unit{
-  font-family:"Noto Serif KR",serif;
-  letter-spacing:.04em;
-}
-.marquee-track .dot{
-  margin:0 22px;
-  color:var(--accent);
-  font-size:18px;
-}
-@keyframes marquee-scroll{
-  0%{transform:translateX(0);}
-  100%{transform:translateX(-50%);}
-}
-
-/* Minimal marquee fix */
-.marquee-section {
-  overflow: hidden !important;
-  white-space: nowrap !important;
-}
-
-.marquee-track {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  white-space: nowrap !important;
-  width: max-content !important;
-  animation: marquee-scroll 34s linear infinite !important;
-}
-
-.marquee-track span {
-  flex: 0 0 auto !important;
-  white-space: nowrap !important;
-}
-
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
