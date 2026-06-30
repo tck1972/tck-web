@@ -1,0 +1,64 @@
+{
+  "source": "index.html",
+  "images": [
+    {
+      "file": "assets/images/inline_01.png",
+      "mime": "image/png",
+      "bytes": 642122
+    },
+    {
+      "file": "assets/images/inline_02.png",
+      "mime": "image/png",
+      "bytes": 1588039
+    },
+    {
+      "file": "assets/images/inline_03.png",
+      "mime": "image/png",
+      "bytes": 24224
+    },
+    {
+      "file": "assets/images/inline_04.png",
+      "mime": "image/png",
+      "bytes": 287859
+    },
+    {
+      "file": "assets/images/inline_05.png",
+      "mime": "image/png",
+      "bytes": 1626098
+    },
+    {
+      "file": "assets/images/inline_06.png",
+      "mime": "image/png",
+      "bytes": 17694
+    },
+    {
+      "file": "assets/images/inline_07.png",
+      "mime": "image/png",
+      "bytes": 1596367
+    }
+  ],
+  "css": {
+    "file": "css/style.css",
+    "bytes": 28059,
+    "style_blocks": 1
+  },
+  "scripts": [
+    {
+      "file": "js/firebase.js",
+      "module": true,
+      "bytes": 4657
+    },
+    {
+      "file": "js/app.js",
+      "module": false,
+      "bytes": 64969
+    }
+  ],
+  "html": {
+    "file": "index.html",
+    "bytes": 4862,
+    "remaining_data_images": 0,
+    "remaining_style_tags": 0,
+    "remaining_inline_script_tags": 0
+  }
+}

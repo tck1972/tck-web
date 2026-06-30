@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>재일대한기독교회 동경중앙교회 — 東京中央教会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">
+      <a href="#" onclick="navigate('home');return false;">
+        <img src="assets/images/inline_01.png" alt="동경중앙교회 로고">
+      </a>
+    </div>
+    <nav>
+      <div class="nav-item">
+        <button>교회소개</button>
+        <div class="submenu">
+          <a href="#" onclick="navigate('greeting');return false;">인사말씀</a>
+          <a href="#" onclick="navigate('philosophy');return false;">교회철학</a>
+          <a href="#" onclick="navigate('history');return false;">연혁</a>
+          <a href="#" onclick="navigate('minister');return false;">섬기는사람</a>
+          <a href="#" onclick="navigate('teams');return false;">사역조직</a>
+          <a href="#" onclick="navigate('worship');return false;">예배안내</a>
+          <a href="#" onclick="navigate('access');return false;">오시는 길</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>차세대</button>
+        <div class="submenu">
+          <a href="#" onclick="navigate('infant');return false;">유아부</a><a href="#" onclick="navigate('children');return false;">아동부</a><a href="#" onclick="navigate('youth');return false;">청소년부</a><a href="#" onclick="navigate('youthadult');return false;">청년부</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>예배</button>
+        <div class="submenu">
+          <a href="#" onclick="navigate('board_worship');return false;">주일예배</a><a href="#" onclick="navigate('board_dawn');return false;">새벽기도</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>선교</button>
+        <div class="submenu">
+          <a href="#" class="sub-head" onclick="navigate('mission_intl');return false;">해외선교</a>
+          <span class="nested"><a href="#" onclick="navigate('mission_kr');return false;">대한민국</a></span>
+          <span class="nested"><a href="#" onclick="navigate('mission_india');return false;">인도</a></span>
+          <a href="#" class="sub-head" onclick="navigate('mission_domestic');return false;">국내선교</a>
+          <span class="nested"><a href="#" onclick="navigate('mission_kyoto');return false;">교토시온그리스도교회</a></span>
+          <span class="nested"><a href="#" onclick="navigate('mission_niigata');return false;">니이카타교회</a></span>
+          <span class="nested"><a href="#" onclick="navigate('mission_kitakami');return false;">北上ベテル伝道所</a></span>
+        </div>
+      </div>
+      <div class="nav-item"><button onclick="navigate('board_hangul');this.blur();return false;">한글교실</button></div>
+      <div class="nav-item">
+        <button>알림</button>
+        <div class="submenu">
+          <a href="#" onclick="navigate('board_notice');return false;">공지사항</a><a href="#" onclick="navigate('board_bulletin');return false;">주보</a><a href="#" onclick="this.blur();return false;">이벤트</a>
+        </div>
+      </div>
+      <span class="lang-switch">
+        <a href="#" class="active">한국어</a>
+        <span class="sep">|</span>
+        <a href="#">日本語</a>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<div class="auth-float" id="authArea">
+  <button class="login-btn" id="loginBtn" onclick="signInWithGoogle()">로그인</button>
+</div>
+
+<div id="app">
+  <div id="content-area"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="kr">동경중앙교회</div>
+      <div class="sub">在日大韓基督教会 東京中央教会</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#" onclick="navigate('greeting');return false;">교회소개</a>
+      <a href="#" onclick="navigate('worship');return false;">예배안내</a>
+      <a href="#">말씀</a>
+      <a href="#">알림</a>
+      <a href="#" onclick="navigate('access');return false;">오시는 길</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 재일대한기독교회 동경중앙교회 · EST. 1972 · TOKYO, JAPAN</p>
+  </div>
+</footer>
+
+<script type="module" src="js/firebase.js"></script>
+
+<script src="js/pages.js"></script>
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/router.js"></script>
+<script src="js/board-csv.js"></script>
+<script src="js/board-firestore.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
